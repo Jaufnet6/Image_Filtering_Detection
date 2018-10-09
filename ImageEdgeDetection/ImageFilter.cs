@@ -14,7 +14,14 @@ namespace ImageEdgeDetection
         {
 
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
-            int raz = bmp.Height / 4;
+            int raz = bmp.Width / 4;
+
+            if(raz == 0)
+            {
+                return bmp;
+            }
+
+
             for (int i = 0; i < bmp.Width; i++)
             {
                 for (int x = 0; x < bmp.Height; x++)

@@ -11,12 +11,13 @@ namespace UnitTestImageDection
     public class PictureInstanciation
     {
 
-        private  Bitmap testBitmap = null;
-        private  string FileName = "test.png";
-        private  StreamReader streamReader = new StreamReader(FileName);
+        private Bitmap testBitmap = null;
+        private string FileName = @"C:\Users\jaufray\source\repos\Image_Filtering_Detection\test.png";
+        
 
-        public  Bitmap InitializeTestPic()
+        public Bitmap InitializeTestPic()
         {
+            StreamReader streamReader = new StreamReader(FileName);
             testBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
             streamReader.Close();
             return testBitmap;
