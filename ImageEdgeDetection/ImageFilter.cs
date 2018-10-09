@@ -16,6 +16,7 @@ namespace ImageEdgeDetection
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
             int raz = bmp.Width / 4;
 
+            //Check if the width is divisible by 4 and == 0
             if(raz == 0)
             {
                 return bmp;
