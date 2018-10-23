@@ -12,7 +12,7 @@ namespace UnitTestImageDection
     {
 
         private Bitmap testBitmap = null;
-        private string FileName = @"C:\Users\jaufray\source\repos\Image_Filtering_Detection\test.png";
+        private string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\test.png";
         
 
         public Bitmap InitializeTestPic()

@@ -89,6 +89,23 @@ namespace UnitTestImageDection
 
         }
 
+        [TestMethod]
+        public void TestImageLalpacian3x3()
+        {
+            Bitmap testedBitmap = ExtBitmap.Laplacian3x3Filter(originalBitmapTest, false);
+
+            Bitmap testBitmap = null;
+            string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\Lalpacian3x3.png";
+
+
+            StreamReader streamReader = new StreamReader(FileName);
+            testBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
+            streamReader.Close();
+
+            Assert.AreEqual(testBitmap.GetPixel(2,2), testedBitmap.GetPixel(2, 2));
+        
+        }
+
 
         //Test when sending a bitmap with superior width that canvas and height
         [TestMethod]
