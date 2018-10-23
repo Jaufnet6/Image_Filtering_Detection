@@ -90,20 +90,61 @@ namespace UnitTestImageDection
         }
 
         [TestMethod]
-        public void TestImageLalpacian3x3()
+        public void TestImageLaplacian3x3()
         {
+            //send a photo to modify it
             Bitmap testedBitmap = ExtBitmap.Laplacian3x3Filter(originalBitmapTest, false);
 
+            //Retrieve the already modified photo
             Bitmap testBitmap = null;
-            string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\Lalpacian3x3.png";
-
-
+            string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\Laplacian3x3.png";
+            
             StreamReader streamReader = new StreamReader(FileName);
             testBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
             streamReader.Close();
 
+            //comparison
             Assert.AreEqual(testBitmap.GetPixel(2,2), testedBitmap.GetPixel(2, 2));
         
+        }
+
+
+        [TestMethod]
+        public void TestImageLaplacian5x5()
+        {
+            //send a photo to modify it
+            Bitmap testedBitmap = ExtBitmap.Laplacian5x5Filter(originalBitmapTest, false);
+
+            //Retrieve the already modified photo
+            Bitmap testBitmap = null;
+            string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\Laplacian5x5.png";
+            
+            StreamReader streamReader = new StreamReader(FileName);
+            testBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
+            streamReader.Close();
+
+            //comparison
+            Assert.AreEqual(testBitmap.GetPixel(2, 2), testedBitmap.GetPixel(2, 2));
+
+        }
+
+        [TestMethod]
+        public void TestImageLaplacianOfGaussian()
+        {
+            //send a photo to modify it
+            Bitmap testedBitmap = ExtBitmap.LaplacianOfGaussianFilter(originalBitmapTest);
+
+            //Retrieve the already modified photo
+            Bitmap testBitmap = null;
+            string FileName = @"C:\Users\quent\Documents\GitHub\Image_Filtering_Detection\UnitTestImageDection\LaplacianOfGaussian.png";
+            
+            StreamReader streamReader = new StreamReader(FileName);
+            testBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
+            streamReader.Close();
+
+            //comparison
+            Assert.AreEqual(testBitmap.GetPixel(2, 2), testedBitmap.GetPixel(2, 2));
+
         }
 
 
