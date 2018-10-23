@@ -52,6 +52,7 @@ namespace ImageEdgeDetection
                                                        int bias = 0, 
                                              bool grayscale = false) 
         {
+
             BitmapData sourceData = sourceBitmap.LockBits(new Rectangle(0, 0,
                                      sourceBitmap.Width, sourceBitmap.Height),
                                                        ImageLockMode.ReadOnly, 
@@ -96,6 +97,7 @@ namespace ImageEdgeDetection
             for (int offsetY = filterOffset; offsetY < 
                 sourceBitmap.Height - filterOffset; offsetY++)
             {
+                
                 for (int offsetX = filterOffset; offsetX < 
                     sourceBitmap.Width - filterOffset; offsetX++)
                 {
@@ -157,6 +159,7 @@ namespace ImageEdgeDetection
                     resultBuffer[byteOffset + 3] = 255;
                 }
             }
+
 
             Bitmap resultBitmap = new Bitmap(sourceBitmap.Width, sourceBitmap.Height);
 
