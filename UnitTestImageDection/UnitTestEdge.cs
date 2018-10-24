@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ImageEdgeDetection;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.IO.Compression;
 
 namespace UnitTestImageDection
 {
@@ -88,12 +89,17 @@ namespace UnitTestImageDection
 
 
         }
-
+        
+        //Testing the Laplacian3x3 method with expected picture
         [TestMethod]
         public void TestImageLaplacian3x3()
         {
+            
+            Bitmap testedBitmap;
+            //Resize with the size of canvas
+            testedBitmap = ExtBitmap.CopyToSquareCanvas(originalBitmapTest, 600);
             //send a photo to modify it
-            Bitmap testedBitmap = ExtBitmap.Laplacian3x3Filter(originalBitmapTest, false);
+            testedBitmap = ExtBitmap.Laplacian3x3Filter(testedBitmap, false);
 
             //Retrieve the already modified photo
             Bitmap testBitmap = null;
@@ -108,12 +114,16 @@ namespace UnitTestImageDection
         
         }
 
-
+        //Testing the Laplacian5x5 method with expected picture
         [TestMethod]
         public void TestImageLaplacian5x5()
         {
+
+            Bitmap testedBitmap;
+            //Resize with the size of canvas
+            testedBitmap = ExtBitmap.CopyToSquareCanvas(originalBitmapTest, 600);
             //send a photo to modify it
-            Bitmap testedBitmap = ExtBitmap.Laplacian5x5Filter(originalBitmapTest, false);
+            testedBitmap = ExtBitmap.Laplacian5x5Filter(testedBitmap, false);
 
             //Retrieve the already modified photo
             Bitmap testBitmap = null;
@@ -128,11 +138,15 @@ namespace UnitTestImageDection
 
         }
 
+        //Testing the Laplacian Of Gaussian method with expected picture
         [TestMethod]
         public void TestImageLaplacianOfGaussian()
         {
+            Bitmap testedBitmap;
+            //Resize with the size of canvas
+            testedBitmap = ExtBitmap.CopyToSquareCanvas(originalBitmapTest, 600);
             //send a photo to modify it
-            Bitmap testedBitmap = ExtBitmap.LaplacianOfGaussianFilter(originalBitmapTest);
+            testedBitmap = ExtBitmap.Laplacian3x3Filter(testedBitmap, false);
 
             //Retrieve the already modified photo
             Bitmap testBitmap = null;
